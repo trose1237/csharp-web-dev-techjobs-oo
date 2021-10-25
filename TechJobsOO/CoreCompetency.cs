@@ -3,11 +3,11 @@ namespace TechJobsOO
 {
     public class CoreCompetency
     {
-        private int id;
+        private int id { get; }
         private static int nextId = 1;
-        private string value;
+        private string Value { get; set; }
 
-        // TODO: Change the fields to auto-implemented properties.
+        // done TODO: Change the fields to auto-implemented properties.
 
         public CoreCompetency()
         {
