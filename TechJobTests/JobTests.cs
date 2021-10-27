@@ -36,14 +36,42 @@ namespace TechJobsTest
             Assert.IsTrue(job.JobType.Value == "Quality Control");
             Assert.IsTrue(job.JobCoreCompetency.Value == "Persistence");
         }
-        
+
         [TestMethod]
         public void TestJobsForEquality()
         {
             Job job1 = new Job();
             Job job2 = new Job();
             Assert.IsFalse(job1.Id == job2.Id);
-
         }
+
+        [TestMethod]
+
+        public void TestToStringForBlankLines()
+        {
+            Job job1 = new Job();
+            Assert.IsTrue(job.ToString().StartsWith("\n"));
+            Assert.IsTrue(job.ToString().EndsWith("\n"));
+        }
+
+        [TestMethod]
+
+        public void TestForLabelDataNewLines()
+        {
+            Assert.IsTrue(job.ToString().Contains("\nID: "));
+            Assert.IsTrue(job.ToString().Contains("\nName: "));
+            Assert.IsTrue(job.ToString().Contains("\nEmployer: "));
+            Assert.IsTrue(job.ToString().Contains("\nLocation: "));
+            Assert.IsTrue(job.ToString().Contains("\nPosition Type: "));
+            Assert.IsTrue(job.ToString().Contains("\nCore Competency: "));
+        }
+
+        [TestMethod]
+
+        public void TestForDataNotAvailable() //If a field is empty, the method should add, “Data not available” after the label.
+        {
+            Assert.IsTrue(job.ToString().Contains("Data not available"));
+        }
+
     }
 }
