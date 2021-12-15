@@ -20,7 +20,7 @@ namespace TechJobsOO
             nextId++;
         }
 
-        public Job(string name, Employer employerName, Location employerLocation, PositionType jobType, CoreCompetency jobCoreCompetency)
+        public Job(string name, Employer employerName, Location employerLocation, PositionType jobType, CoreCompetency jobCoreCompetency) : this()
         {
             Name = name;
             EmployerName = employerName;
@@ -42,8 +42,22 @@ namespace TechJobsOO
             return HashCode.Combine(Id);
         }
 
+        //In the Job class's ToString method, there should be some code to check if any field is blank.
+        //If so, it should display "Data not available." You can do this with some if statements
+        //and setting the value of the blank field to the string you want.
         public override string ToString()
         {
+            
+            if (Name == null)
+            {
+                string msg = "Data not available.";
+                Name = msg;
+            }
+            if (EmployerName == null)
+            {
+                
+                
+            }
             return "\n" + "\nID: " + Id + "\nName: " + Name + "\nEmployer: " + EmployerName + "\nLocation: " + EmployerLocation + "\nPosition Type: " + JobType + "\nCore Competency: " + JobCoreCompetency+ "\n";
         }
     }
